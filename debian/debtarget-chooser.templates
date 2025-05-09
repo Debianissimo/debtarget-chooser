@@ -1,0 +1,56 @@
+# TRANSLATORS: the "installation target" is the device the OS will be installed to.
+
+Template: debian-installer/debtarget-chooser/title
+Type: text
+_Description: Choose Debianissimo installation target
+
+Template: debtarget-chooser/mode
+Type: select
+Choices-C: ordissimo,ordebianissimo,debianissimo
+Choices: Ordissimo hardware,Ordissimo hardware with modifications,Another computer hardware (Debianissimo)
+# :sl1:
+_Description: Install Debianissimo for:
+ By default, Debianissimo modifies the Ordissimo system to
+ make it easier to add other apps and use other operating
+ systems along with it. One of the additions by Debianissimo,
+ for example, is the terminal app. One of the things Debianissimo
+ may remove is the multi-partition scheme to allow using multiple
+ operating system with it. 
+ .
+ The option "Ordissimo hardware with modifications" allows you to
+ have the Ordissimo system with most of the modifications applied by
+ Debianissimo, except the removal of the multi-partition scheme (for now).
+ .
+ If you choose "Ordissimo hardware", with or without modifications, the whole disk
+ will be CLEARED and all the partitions will be DELETED. Make sure you have a backup.
+
+Template: debtarget-chooser/version
+Type: select
+Choices-C: ${VERS}
+Choices: ${VERS_SHOW}
+_Description: Install Ordissimo version:
+ Based on your system architecture, these versions can work in your computer.
+ You can choose which one to install to your system.
+
+Template: debtarget-chooser/model
+Type: select
+Choices-C: ${MODELS}
+Choices: ${NAMES}
+_Description: Install Debianissimo for:
+ For the maximum compatibility, you need to select the
+ Ordissimo model you are installing the software to.
+ .
+ If your model is missing or is marked as "Unknown", please
+ let us know through our community (e.g. Discord or Telegram).
+ You may need the original installed system to get the
+ model codename.
+
+Template: debtarget-chooser/hostname-reset
+Type: note
+_Description: System hostname reset
+ Due to Ordissimo system limitations, the previously configured hostname
+ has been reset, and the system hostname has been set to "ordissimo".
+
+Template: debtarget-chooser/downloading
+Type: text
+_Description: Getting installable versions...

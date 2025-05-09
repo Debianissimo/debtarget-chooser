@@ -1,0 +1,68 @@
+#!/bin/sh
+
+set -e
+. /usr/share/debconf/confmodule
+. /usr/lib/debtarget/library.sh
+#db_subst $template DESCRIPTIONS "$descriptions" # preso da partman
+#db_subst debtarget-chooser/mode CHOICES qualcosa
+
+if [ "$(udpkg --print-architecture)" = "i386" ]; then
+	# for now we don't support patching
+	# older versions of the system
+	db_set debtarget-chooser/mode ordissimo
+	mode="ordissimo"
+else
+	db_input high debtarget-chooser/mode || true
+	db_go || exit 255
+	db_get debtarget-chooser/mode
+	mode="$RET"
+fi
+echo "Scelta: $RET"
+
+echo "$RET" > /mnt/scelta.txt
+
+version=""
+
+choose_version() {
+	vlen=0
+	get_working_versions || vlen=$?
+	if [ "$vlen" = 0 ]; then
+		exit 3
+	fi
+	if [ "$vlen" = 1 ]; then
+		version=$VERSIONS
+		db_set debtarget-chooser/version "$version"
+		return 0
+	fi
+	# shellcheck disable=SC2086
+	get_versions_descriptions $VERSIONS
+	get_working_versions 1 || vlen=$?
+	db_subst debtarget-chooser/version VERS "$VERSIONS"
+	db_subst debtarget-chooser/version VERS_SHOW "$VERSION_DESCS"
+	db_input high debtarget-chooser/version
+	db_go || exit 2
+	db_get debtarget-chooser/version
+	version="$RET"
+}
+
+choose_model() {
+	get_all_models "$version"
+	db_subst debtarget-chooser/model MODELS "$MODELS"
+	db_subst debtarget-chooser/model NAMES "$NAMES"
+	db_input high debtarget-chooser/model
+	db_go || exit 1
+}
+
+download_versions || true
+
+choose_version
+if [ "$mode" != "debianissimo" ]; then # UGLY
+	choose_model
+	if [ "$mode" = "ordissimo" ] && [ "$(hostname)" != "ordissimo" ]; then
+		force-ohost && {
+			echo "Ordissimo hostname forced. Hostname is: $(hostname)"
+			db_input high debtarget-chooser/hostname-reset
+			db_go || exit 1
+		}
+	fi
+fi

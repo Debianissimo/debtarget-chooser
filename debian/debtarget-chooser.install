@@ -1,0 +1,3 @@
+choose-target usr/bin
+versions usr/lib/debtarget
+library.sh usr/lib/debtarget

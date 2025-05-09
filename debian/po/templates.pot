@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the debtarget-chooser package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: debtarget-chooser\n"
+"Report-Msgid-Bugs-To: debtarget-chooser@packages.debian.org\n"
+"POT-Creation-Date: 2025-01-06 20:28+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Description
+#. :sl1:
+#: ../debtarget-chooser.templates:1001
+msgid "Install Debianissimo for:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl1:
+#: ../debtarget-chooser.templates:1001
+msgid ""
+"By default, Debianissimo modifies the Ordissimo system to make it easier to "
+"add other apps and use other operating systems along with it. One of the "
+"additions from Debianissimo, for example, is the terminal app. One of the "
+"things Debianissimo may remove is the multi-partition scheme to allow using "
+"multiple operating system with it."
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl1:
+#: ../debtarget-chooser.templates:1001
+msgid ""
+"The option \"Ordissimo hardware with modifications\" allows you to have the "
+"Ordissimo system with most of the modifications applied by Debianissimo, "
+"except the removal of the multi-partition scheme (for now)."
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl1:
+#: ../debtarget-chooser.templates:1001
+msgid ""
+"If you choose \"Ordissimo\", with or without modifications, you will lose "
+"ALL OF YOUR DATA that's stored in your disk. Make sure you have a backup."
+msgstr ""

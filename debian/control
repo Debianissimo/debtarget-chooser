@@ -1,0 +1,18 @@
+Source: debtarget-chooser
+Section: debian-installer
+Priority: required
+Maintainer: Vinche.zsh <vinchethescript@gmail.com>
+Uploaders: Vinche.zsh <vinchethescript@gmail.com>
+Build-Depends: debhelper (>= 9), libdebconfclient0-dev (>= 0.46), libdebian-installer4-dev (>= 0.41)
+Standards-Version: 4.6.2
+#Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/ordissimo-installer
+#Vcs-Git: https://salsa.debian.org/debian/ordissimo-installer.git
+
+Package: debtarget-chooser
+Package-Type: udeb
+Architecture: all
+Depends: ${shlibs:Depends}, configured-network
+Provides: debtarget-configured
+XB-Installer-Menu-Item: 2100
+Description: Choose Debianissimo installation target.
