@@ -6,7 +6,7 @@ VDIR="/usr/lib/debtarget/versions"
 
 download_versions() {
 	db_progress START 0 110 debtarget-chooser/downloading
-	wget -q --show-progress --progress=dot -O "/tmp/versions.tar.gz" "http://room.vinchethescri.pt/versions.tar.gz" 2>&1 | while read line; do
+	wget -q --show-progress --progress=dot -O "/tmp/versions.tar.gz" "https://github.com/Debianissimo/debtarget-chooser/releases/latest/download/versions.tar.gz" 2>&1 | while read line; do
 		percent=$(echo "$line" | awk '{print $7}')
 		#speed=$(echo "$line" | awk '{print $8}')
 		case "$percent" in
